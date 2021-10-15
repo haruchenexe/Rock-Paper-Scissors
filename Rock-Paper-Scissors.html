@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+        <title>Rock-Paper-Scissors</title>
+        <meta charset="UTF-8">
+    </head>
+
+<!--
+
+    Make a function called "playerSelection" that will allow player to choose between
+    'Rock', 'Paper', and 'Scissors'.
+    parameter has to be case-insentive. User can enter rock, ROCK, Rock and return -> rock
+    Input from user -> User prompt()
+
+    Make a function called "computerPlay" that will randomly return 'Rock', 'Paper', 'Scissors'
+
+    Write a function that plays a single round of Rock Paper Scissors calling it "playRound"
+    function will take 2 parameters - (playerSelection, compuerSelection)
+    Return a string that declares the winner. "You Lose! Paper beats Rock"
+
+    **You want to return the results of playRound and not console.log() it**
+
+    Write a function call game(). Use previous function inside of this and play
+    5 round game that keeps score and reports a winner or loser
+-->
+    <body>
+        <script>
+
+        game(5)
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    console.log(playRound(playerSelection(), computerSelection()))
+
+                    // 1. I want the user to input either rock, paper, or scissor and return an
+                    //    in-sensitive case result         
+                    function playerSelection() {
+                        let choice = window.prompt('Please choose between Rock, Paper, or Scissor');
+                        let playerPlay = choice.toLowerCase();
+                        if (!(playerPlay == 'rock' || playerPlay == 'paper' || playerPlay == 'scissor')) {
+                                alert('This is not an available choice!');
+                        }   else {
+                                return playerPlay
+                        }
+                    }
+                    // 2. Make a function called "computerPlay" that will randomly return 'Rock', 
+                    // 'Paper', 'Scissors'
+
+                    function computerSelection() {
+                        let choice = ['rock', 'paper', 'scissor']
+                        // randomly chooses between 'rock', 'paper', 'scissor'
+                        let computerPlay = choice[Math.floor(Math.random() * 3)]
+                            return computerPlay;
+                    }
+
+                    // 3. Write a function that plays a single round of Rock Paper Scissors calling it 
+                    // "playRound" function will take 2 parameters - (playerSelection, compuerSelection)
+                    //  Return a string that declares the winner. "You Lose! Paper beats Rock"
+
+                    function playRound(player, computer) {
+                        if (player == 'rock' & computer == 'scissor') {
+                                return `You Win! ${player} beats ${computer}.`
+                        }   else if (player == 'paper' & computer == 'rock') {
+                                return `You Win! ${player} beats ${computer}.`
+                        }   else if (player == 'scissor' & computer == 'paper') {
+                                return `You Win! ${player} beats ${computer}.`
+                        }   else if (computer == 'rock' & player == 'scissor') {
+                                return `You Lose! ${computer} beats ${player}.`
+                        }   else if (computer == 'paper' & player == 'rock') {
+                                return `You Lose! ${computer} beats ${player}.`
+                        }   else if (computer == 'scissor' & player == 'paper') {
+                                return `You Lose! ${computer} beats ${player}.`
+                        }   else 
+                                return 'It\'s a tie!'
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>
